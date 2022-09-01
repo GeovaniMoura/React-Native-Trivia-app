@@ -12,14 +12,14 @@ export default function Login({ navigation }: any) {
   const [inputGravatarEmail, setInputGravatarEmail] = useState('');
   const [bttDisabled, setBttDisabled] = useState(true);
   
-  const verifyButton = () => {
+  const verifyButton = (): void => {
     const minCharacters = 6;
     const validate = ((nickName.length >= minCharacters)
       && EmailValidator.validate(inputGravatarEmail));
     if (validate) setBttDisabled(false);
   }
 
-  const startGame = async () => {
+  const startGame = async (): Promise<void> => {
     const { token } = await getToken();
     setToken(token);
     const thumbnail = `https://www.gravatar.com/avatar/${md5(inputGravatarEmail).toString()}`;
@@ -28,6 +28,7 @@ export default function Login({ navigation }: any) {
     });
     navigation.navigate('GameScreen');
   }
+  
   return (
     <Container>
       <ContainerInputsLogin>
