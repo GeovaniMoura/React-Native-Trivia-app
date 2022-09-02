@@ -1,8 +1,4 @@
-interface IToken {
-  response_code: number;
-  response_message: string;
-  token: string;
-}
+import IToken from "../interfaces/IToken";
 
 export const getToken = async (): Promise<IToken> => {
   try {
