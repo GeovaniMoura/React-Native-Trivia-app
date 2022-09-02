@@ -1,32 +1,21 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { TextInput, View, Button, FlatList } from 'react-native';
-import Question from '../../components/Questions';
+import React, { useContext } from 'react';
+import { TextInput, View, Button } from 'react-native';
 import { AuthContext } from '../../contexts/auth';
-import { Container } from './styles';
-import Header from '../../components/Header';
-import { QuestionContainer } from '../../components/styles';
+import { getStorage } from '../../services/handleLocalStorage';
 
 export default function GameScreen() {
-  const { questions: { results } } = useContext(AuthContext);
-  const [arrayAnswers, setArrayAnswers] = useState(['']);
-  const [index, setIndex] = useState(0);
-
-  const generateAlternatives = () => {
-    const arrAnswers = [results[index].correct_answer, ...results[index].incorrect_answers];
-    arrAnswers.sort(()=>Math.random() - Math.random());
-    setArrayAnswers(arrAnswers);
+  const { nickName } = useContext(AuthContext);
+  const testFunc = async (): Promise<void> => {
+    const data = await getStorage('ranking');
+    console.log(data);
+    console.log('nickName', nickName);
   }
-
   return (
-    <Container>
-      <Header />
-      <QuestionContainer>
-        <Question question={results[index]}/>
-      </QuestionContainer>
+    <View>
       <Button
-        title="Next Question"
-        onPress={generateAlternatives}
+        title="test"
+        onPress={testFunc}
       />
-    </Container>
+    </View>
   )
 }
