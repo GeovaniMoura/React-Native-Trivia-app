@@ -45,3 +45,20 @@ export const ImageGravatar = styled.Image`
 export const ContainerHeaderData = styled.View`
   flex-direction: row;
 `
+
+export const ContainerAnswers = styled.View`
+  margin-top: 10px;
+`
+
+export const ContainerAnswer = styled.View`
+  min-width: 80%;
+  align-items: center;
+  border: 1px solid gray;
+  margin: 5px;
+  padding: 5px;
+`
+
+export const ButtonAnswer = styled.Button`
+  width: 100%;
+  color: 'red'
+`

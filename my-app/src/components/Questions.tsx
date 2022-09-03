@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from 'react';
 import { Text } from 'react-native';
 import he from 'he';
 import IQuestion from '../interfaces/IQuestion';
-import { QuestionContainer } from './styles';
 
 type QuestionProps = {
   question: IQuestion,

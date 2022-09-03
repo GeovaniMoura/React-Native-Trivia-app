@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import * as EmailValidator from 'email-validator';
 import md5 from 'crypto-js/md5';
 import { InputLogin, ImageTrivia, Container, ContainerInputsLogin } from './styles';
@@ -7,11 +8,13 @@ import { AuthContext } from '../../contexts/auth';
 import { setStorage } from '../../services/handleLocalStorage';
 import { getToken } from '../../helpers/token';
 import { fetchQuestionsAndAnswers } from '../../helpers/TriviaAPI';
+import { setThirtySeconds } from '../../store/ducks/Timer';
 
 export default function Login({ navigation }: any) {
   const { nickName, setNickName, setToken, setQuestions, configs } = useContext(AuthContext);
   const [inputGravatarEmail, setInputGravatarEmail] = useState('');
   const [bttDisabled, setBttDisabled] = useState(true);
+  const dispatch = useDispatch();
   
   const verifyButton = (): void => {
     const minCharacters = 6;
@@ -33,6 +36,7 @@ export default function Login({ navigation }: any) {
     });
     const data = await fetchQuestionsAndAnswers(token, configs);
     setQuestions(data);
+    dispatch(setThirtySeconds());
     navigation.navigate('GameScreen');
   }
   

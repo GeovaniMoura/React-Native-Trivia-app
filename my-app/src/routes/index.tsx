@@ -1,4 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
+import { Provider } from "react-redux";
+import store from '../store'
 import AuthProvider from "../contexts/auth";
 
 import { StackRoutes } from "./stack.routes";
@@ -6,9 +8,11 @@ import { StackRoutes } from "./stack.routes";
 export function Routes() {
   return (
     <NavigationContainer>
-      <AuthProvider>
-        <StackRoutes />
-      </AuthProvider>
+      <Provider store={store}>
+        <AuthProvider>
+          <StackRoutes />
+        </AuthProvider>
+      </Provider>
     </NavigationContainer>
   )
 }
