@@ -30,13 +30,3 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
 `
-
-export const ButtonPlay = styled.Button`
-  justify-content: center;
-  align-items: center;
-  color: 'red';
-  margin: 12px;
-  padding: 12px;
-  width: 80%;
-  opacity: 1;
-`

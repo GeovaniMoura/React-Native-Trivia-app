@@ -1,6 +1,7 @@
 import React, { createContext, useState } from 'react';
 import IConfig from '../interfaces/IConfig';
 import IQuestion from '../interfaces/IQuestion';
+import IScore from '../interfaces/IScore';
 
 interface IContext {
   nickName: string;
@@ -11,6 +12,8 @@ interface IContext {
   setQuestions: Function;
   configs: IConfig;
   setConfigs: Function;
+  score: IScore;
+  setScore: Function;
 }
 
 const initialState: IContext = {
@@ -22,6 +25,8 @@ const initialState: IContext = {
   setQuestions: () => {},
   configs: { type: '', category: '', difficulty: '' },
   setConfigs: () => {},
+  score: { score: 0, correctAnswers: 0 },
+  setScore: () => {},
 }
 
 export const AuthContext = createContext(initialState);
@@ -31,6 +36,7 @@ export default function AuthProvider({ children }: any) {
   const [token, setToken] = useState('');
   const [questions, setQuestions] = useState({ results: []});
   const [configs, setConfigs] = useState({ type: '', category: '', difficulty: '' });
+  const [score, setScore] = useState({ score: 0, correctAnswers: 0 });
 
   return (
     <AuthContext.Provider value={
@@ -43,6 +49,8 @@ export default function AuthProvider({ children }: any) {
         setQuestions,
         configs,
         setConfigs,
+        score,
+        setScore,
       }}>
       { children }
     </AuthContext.Provider>

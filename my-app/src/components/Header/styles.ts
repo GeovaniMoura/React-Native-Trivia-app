@@ -16,17 +16,6 @@ export const ImageTriviaHeader = styled.Image`
   height: 100%;
 `;
 
-export const QuestionContainer = styled.View`
-  justify-content: center;
-  border-radius: 12px;
-  text-align: center;
-  background-color: #6E96CA;
-  align-items: center;
-  align-self: center;
-  width: 80%;
-  height: 50%;
-`
-
 export const TextNickName = styled.Text`
   margin: 4px;
   color: white;

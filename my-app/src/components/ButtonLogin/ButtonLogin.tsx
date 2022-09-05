@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Button } from 'react-native';
-import { ButtonPlay } from '../pages/Login/styles';
+import { View, Button, TouchableOpacity, Text } from 'react-native';
+import { ButtonPlay, DisabledButtonPlay, TextButton } from './styles';
 
 type ButtonProps = {
   bttDisabled: boolean;
@@ -11,15 +11,17 @@ export default function ButtonLogin({ bttDisabled, startGame }: ButtonProps) {
   return (
     <View>
       { bttDisabled ? (
-        <Button
-          title='Play'
+        <DisabledButtonPlay
           disabled={bttDisabled}
-        />
+        >
+          <TextButton>Play</TextButton>
+        </DisabledButtonPlay>
       ) : (
         <ButtonPlay
-          title="Play"
           onPress={startGame}
-        />
+        >
+          <TextButton>Play</TextButton>
+        </ButtonPlay>
       )}
     </View>
   )
