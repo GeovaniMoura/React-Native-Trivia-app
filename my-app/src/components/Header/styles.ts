@@ -16,17 +16,6 @@ export const ImageTriviaHeader = styled.Image`
   height: 100%;
 `;
 
-export const QuestionContainer = styled.View`
-  justify-content: center;
-  border-radius: 12px;
-  text-align: center;
-  background-color: #6E96CA;
-  align-items: center;
-  align-self: center;
-  width: 80%;
-  height: 50%;
-`
-
 export const TextNickName = styled.Text`
   margin: 4px;
   color: white;
@@ -44,27 +33,4 @@ export const ImageGravatar = styled.Image`
 
 export const ContainerHeaderData = styled.View`
   flex-direction: row;
-`
-
-export const ContainerAnswers = styled.View`
-  margin-top: 10px;
-`
-
-export const ContainerAnswer = styled.View`
-  min-width: 80%;
-  align-items: center;
-  border: 1px solid gray;
-  margin: 5px;
-  padding: 5px;
-`
-
-export const ButtonAnswer = styled.Button`
-  width: 100%;
-  color: 'red';
-`
-
-export const ContainerTimer = styled.View`
-  width: 80%;
-  align-items: center;
-  align-self: center;
 `

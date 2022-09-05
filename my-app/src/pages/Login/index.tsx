@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import * as EmailValidator from 'email-validator';
 import md5 from 'crypto-js/md5';
 import { InputLogin, ImageTrivia, Container, ContainerInputsLogin } from './styles';
-import ButtonLogin from '../../components/ButtonLogin';
+import ButtonLogin from '../../components/ButtonLogin/ButtonLogin';
 import { AuthContext } from '../../contexts/auth';
 import { setStorage } from '../../services/handleLocalStorage';
 import { getToken } from '../../helpers/token';

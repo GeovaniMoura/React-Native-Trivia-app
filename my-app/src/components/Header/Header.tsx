@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../contexts/auth';
-import { getStorage } from '../services/handleLocalStorage';
+import { AuthContext } from '../../contexts/auth';
+import { getStorage } from '../../services/handleLocalStorage';
 import { ContainerHeaderData, GameHeader, ImageGravatar, ImageTriviaHeader, TextNickName, TextScore } from './styles';
 
 export default function Header() {
@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <GameHeader>
-      <ImageTriviaHeader source={require('../images/trivia.png')}/>
+      <ImageTriviaHeader source={require('../../images/trivia.png')}/>
       <ContainerHeaderData>
         <TextNickName>{nickName}</TextNickName>
         <TextScore>Score: {ranking.score}</TextScore>
