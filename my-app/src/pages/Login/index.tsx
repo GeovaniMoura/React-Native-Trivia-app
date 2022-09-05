@@ -8,10 +8,10 @@ import { AuthContext } from '../../contexts/auth';
 import { setStorage } from '../../services/handleLocalStorage';
 import { getToken } from '../../helpers/token';
 import { fetchQuestionsAndAnswers } from '../../helpers/TriviaAPI';
-import { setThirtySeconds } from '../../store/ducks/Timer';
+import { SetThirtySeconds } from '../../store/ducks/Timer';
 
 export default function Login({ navigation }: any) {
-  const { nickName, setNickName, setToken, setQuestions, configs } = useContext(AuthContext);
+  const { nickName, setNickName, setToken, setQuestions, configs, setScore } = useContext(AuthContext);
   const [inputGravatarEmail, setInputGravatarEmail] = useState('');
   const [bttDisabled, setBttDisabled] = useState(true);
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ export default function Login({ navigation }: any) {
   }, [inputGravatarEmail, nickName])
 
   const startGame = async (): Promise<void> => {
+    setScore({ score: 0, correctAnswers: 0 });
     const { token } = await getToken();
     setToken(token);
     const thumbnail = `https://www.gravatar.com/avatar/${md5(inputGravatarEmail).toString()}`;
@@ -36,7 +37,7 @@ export default function Login({ navigation }: any) {
     });
     const data = await fetchQuestionsAndAnswers(token, configs);
     setQuestions(data);
-    dispatch(setThirtySeconds());
+    dispatch(SetThirtySeconds());
     navigation.navigate('GameScreen');
   }
   

@@ -1,15 +1,24 @@
 import React from 'react';
 import he from 'he';
-import { ContainerAnswer, TextAnswer } from './styles';
+import { ContainerCorrectAnswer, ContainerIncorrectAnswer, TextAnswer } from './styles';
 
 type AnswersProps = {
   correctAnswers: string,
+  isRight: boolean,
 }
 
-export default function Answers({ correctAnswers }: AnswersProps) {
-  return (
-    <ContainerAnswer>
-      <TextAnswer>{he.decode(correctAnswers)}</TextAnswer>
-    </ContainerAnswer>
-  );
+export default function ShowAnswers({ correctAnswers, isRight }: AnswersProps) {
+  if (!isRight) {
+    return (
+      <ContainerIncorrectAnswer>
+        <TextAnswer>{he.decode(correctAnswers)}</TextAnswer>
+      </ContainerIncorrectAnswer>
+    )
+  } else {
+    return (
+      <ContainerCorrectAnswer>
+        <TextAnswer>{he.decode(correctAnswers)}</TextAnswer>
+      </ContainerCorrectAnswer>
+    )
+  }
 }
