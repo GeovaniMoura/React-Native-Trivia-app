@@ -60,5 +60,11 @@ export const ContainerAnswer = styled.View`
 
 export const ButtonAnswer = styled.Button`
   width: 100%;
-  color: 'red'
+  color: 'red';
+`
+
+export const ContainerTimer = styled.View`
+  width: 80%;
+  align-items: center;
+  align-self: center;
 `

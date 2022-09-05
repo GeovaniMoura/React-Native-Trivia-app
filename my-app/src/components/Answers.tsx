@@ -16,7 +16,7 @@ export default function Answers({ answers }: AnswersProps) {
     <ContainerAnswers>
       { answers.map((answer) => (
         <ContainerAnswer>
-          <ButtonAnswer key={answer} title={answer} />
+          <ButtonAnswer key={answer} title={he.decode(answer)} />
         </ContainerAnswer>
       ))}
     </ContainerAnswers>
