@@ -5,3 +5,7 @@ export const ContainerQuestion = styled.View`
   align-items: center;
   text-align: center;
 `
+
+export const TextQuestion = styled.Text`
+  color: white;
+`

@@ -12,5 +12,6 @@ export const QuestionContainer = styled.View`
   align-self: center;
   padding: 10px;
   width: 80%;
-  height: 50%;
+  justify-content: space-around;
+  height: 60%;
 `
