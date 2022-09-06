@@ -21,7 +21,6 @@ export default function GameScreen({ navigation }: any) {
   const [arrayAnswers, setArrayAnswers] = useState(['']);
   const [index, setIndex] = useState(0);
   const [enableTimer, setEnableTimer] = useState(true);
-  const [isRight, setIsRight] = useState(false);
   const [lastQuestion, setLastQuestion] = useState(false);
   const dispatch = useDispatch()
   const { timer } = useSelector((state: any) => state.reducerTimer);
@@ -68,12 +67,7 @@ export default function GameScreen({ navigation }: any) {
   const clickAnswer = async (answer: string): Promise<void> => {
     dispatch(ResetTimer());
     setEnableTimer(false);
-    if (results[index].correct_answer === answer) {
-      setIsRight(true);
-      await updateScore();
-    } else {
-      setIsRight(false);
-    }
+    if (results[index].correct_answer === answer) await updateScore();
   }
 
   const nextQuestion = (): void => {
@@ -99,7 +93,7 @@ export default function GameScreen({ navigation }: any) {
           { enableTimer ? (
             <Answers answers={arrayAnswers} clickAnswer={clickAnswer} />
           ) : (
-            <ShowAnswers isRight={isRight} correctAnswers={results[index].correct_answer} />
+            <ShowAnswers answers={results[index]} arrAnswers={arrayAnswers} />
           ) }
         </QuestionContainer>
         { timer === 0 && (
