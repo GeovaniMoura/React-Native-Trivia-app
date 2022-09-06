@@ -1,10 +1,40 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { View, Text, FlatList } from 'react-native';
+import { getStorage } from '../../services/handleLocalStorage';
+import { ButtonBackToHome, Container, ContainerItemRanking, ContainerRanking, FlatListRanking, ImageGravatar, TextBackToHome, TitleRanking } from './styles';
 
-export default function Ranking() {
+export default function Ranking({ navigation }: any) {
+  const [ranking, setRanking] = useState([]);
+  const backToHome = (): void => {
+    navigation.navigate('Login');
+  }
+  useEffect(() => {
+    const funcGetStorage = async (): Promise<void> => {
+      const ranking = await getStorage('rankingPlayers');
+      setRanking(ranking);
+    }
+    funcGetStorage();
+  }, [])
   return (
-    <View>
-      <Text>Tela de Ranking</Text>
-    </View>
+    <Container>
+      <ContainerRanking>
+        <FlatListRanking
+          data={ranking}
+          ListHeaderComponent={<TitleRanking>Ranking</TitleRanking>}
+          renderItem={({ item }: any) => (
+            <ContainerItemRanking>
+              <ImageGravatar source={{ uri: item.picture }} />
+              <Text>{item.name}</Text>
+              <Text>{item.score}</Text>
+            </ContainerItemRanking>
+          )}
+        />
+      </ContainerRanking>
+      <ButtonBackToHome
+        onPress={backToHome}
+      >
+        <TextBackToHome>Back to home screen</TextBackToHome>
+      </ButtonBackToHome>
+    </Container>    
   )
 }

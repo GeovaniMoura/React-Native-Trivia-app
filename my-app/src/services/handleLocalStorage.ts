@@ -1,17 +1,14 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-interface IPlayer {
-  name: string;
-  score: number;
-  picture: string;
-  numberOfCorrectAnswers: number;
-}
-
-export const setStorage = async (name: string, obj: IPlayer): Promise<void> => {
+export const setStorage = async (name: string, obj: any): Promise<void> => {
   await AsyncStorage.setItem(name, JSON.stringify(obj));
 };
 
-export const getStorage = async (name: string): Promise<IPlayer> => {
-  const result = await AsyncStorage.getItem(name) || ''
-  return JSON.parse(result);
+export const getStorage = async (name: string): Promise<any> => {
+  try {
+    const result = await AsyncStorage.getItem(name);
+    if (result) return JSON.parse(result);
+  } catch (e: any) {
+    console.log(e.message);
+  }
 };
