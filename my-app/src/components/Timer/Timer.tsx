@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Text } from 'react-native';
-import { ContainerTimer } from './styles';
+import { ContainerTimer, TextTimer } from './styles';
 import { DecrementTimer } from '../../store/ducks/Timer';
 
 type TimerProps = {
@@ -33,7 +33,7 @@ export default function Timer({ timeOutFunc }: TimerProps) {
 
   return (
     <ContainerTimer>
-      <Text>{timer}</Text>
+      <TextTimer>{timer}</TextTimer>
     </ContainerTimer>
   )
 }

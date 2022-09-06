@@ -27,10 +27,11 @@ export const TextScore = styled.Text`
 `
 
 export const ImageGravatar = styled.Image`
-  width: 30%;
+  width: 20%;
   resizeMode: contain;
 `
 
 export const ContainerHeaderData = styled.View`
   flex-direction: row;
+  justify-content: flex-end;
 `
