@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Configs from '../pages/Configs';
 import Feedback from '../pages/Feedback';
 import GameScreen from '../pages/GameScreen';
 import Login from '../pages/Login';
@@ -24,6 +25,10 @@ export function StackRoutes() {
       <Screen
         name="Ranking"
         component={ Ranking }
+      />
+      <Screen
+        name="Configs"
+        component={ Configs }
       />
     </Navigator>
   )

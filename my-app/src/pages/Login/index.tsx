@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import * as EmailValidator from 'email-validator';
 import md5 from 'crypto-js/md5';
-import { InputLogin, ImageTrivia, Container, ContainerInputsLogin } from './styles';
+import { InputLogin, ImageTrivia, Container, ContainerInputsLogin, ButtonConfigs, TextConfigs } from './styles';
 import ButtonLogin from '../../components/ButtonLogin/ButtonLogin';
 import { AuthContext } from '../../contexts/auth';
 import { setStorage } from '../../services/handleLocalStorage';
@@ -40,6 +40,10 @@ export default function Login({ navigation }: any) {
     dispatch(SetThirtySeconds());
     navigation.navigate('GameScreen');
   }
+
+  const redirectToSettings = () => {
+    navigation.navigate('Configs');
+  }
   
   return (
     <Container>
@@ -58,6 +62,9 @@ export default function Login({ navigation }: any) {
           onChangeText={setInputGravatarEmail}
         />
         <ButtonLogin bttDisabled={bttDisabled} startGame={startGame} />
+        <ButtonConfigs onPress={redirectToSettings}>
+          <TextConfigs>Settings</TextConfigs>
+        </ButtonConfigs>
       </ContainerInputsLogin>
     </Container>
   );
