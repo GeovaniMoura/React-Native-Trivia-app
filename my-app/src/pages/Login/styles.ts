@@ -30,3 +30,16 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
 `
+
+export const ButtonConfigs = styled.TouchableOpacity`
+  width: 30%;
+  margin-top: 40px;
+  align-items: center;
+  padding: 5px;
+  border-radius: 4px;
+  background-color: purple;
+`
+
+export const TextConfigs = styled.Text`
+  color: white;
+`

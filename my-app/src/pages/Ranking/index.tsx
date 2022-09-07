@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { getStorage } from '../../services/handleLocalStorage';
-import { ButtonBackToHome, Container, ContainerItemRanking, ContainerRanking, FlatListRanking, ImageGravatar, TextBackToHome, TitleRanking } from './styles';
+import { ButtonBackToHome, Container, ContainerItemRanking, ContainerRanking, FlatListRanking, ImageGravatar, TextBackToHome, TextScore, TitleRanking } from './styles';
 
 export default function Ranking({ navigation }: any) {
   const [ranking, setRanking] = useState([]);
@@ -25,7 +25,7 @@ export default function Ranking({ navigation }: any) {
             <ContainerItemRanking>
               <ImageGravatar source={{ uri: item.picture }} />
               <Text>{item.name}</Text>
-              <Text>{item.score}</Text>
+              <TextScore>{item.score}</TextScore>
             </ContainerItemRanking>
           )}
         />

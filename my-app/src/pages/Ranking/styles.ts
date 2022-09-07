@@ -67,3 +67,8 @@ export const ButtonBackToHome = styled.TouchableOpacity`
 export const TextBackToHome = styled.Text`
   color: white;
 `
+
+export const TextScore = styled.Text`
+  min-width: 10%;
+  text-align: center;
+`
