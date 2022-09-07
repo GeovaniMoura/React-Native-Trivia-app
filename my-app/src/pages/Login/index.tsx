@@ -6,8 +6,8 @@ import { InputLogin, ImageTrivia, Container, ContainerInputsLogin, ButtonConfigs
 import ButtonLogin from '../../components/ButtonLogin/ButtonLogin';
 import { AuthContext } from '../../contexts/auth';
 import { setStorage } from '../../services/handleLocalStorage';
-import { getToken } from '../../helpers/token';
-import { fetchQuestionsAndAnswers } from '../../helpers/TriviaAPI';
+import { getToken } from '../../services/tokenApi';
+import { fetchQuestionsAndAnswers } from '../../services/TriviaAPI';
 import { SetThirtySeconds } from '../../store/ducks/Timer';
 
 export default function Login({ navigation }: any) {
