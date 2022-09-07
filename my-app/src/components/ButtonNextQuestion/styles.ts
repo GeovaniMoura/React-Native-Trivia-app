@@ -5,8 +5,8 @@ export const ContainerButtonNextQuestion = styled.TouchableOpacity`
   align-items: center;
   align-self: center;
   margin: 30px;
-  border: 1px solid black;
   background-color: #B80065;
+  border-radius: 6px;
   padding: 10px;
 `
 

@@ -23,7 +23,7 @@ export default function ButtonNextQuestion({ nextQuestion, lastQuestion, navigat
   if (lastQuestion) {
     return (
       <ContainerButtonNextQuestion onPress={finishGame}>
-        <TextNextQuestion>Pontuação</TextNextQuestion>
+        <TextNextQuestion>Score</TextNextQuestion>
       </ContainerButtonNextQuestion>
     )
   } else {

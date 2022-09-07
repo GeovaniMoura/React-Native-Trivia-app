@@ -59,7 +59,7 @@ export const ButtonBackToHome = styled.TouchableOpacity`
   align-items: center;
   align-self: center;
   margin: 30px;
-  border: 1px solid black;
+  border-radius: 6px;
   background-color: #B80065;
   padding: 10px;
 `
